@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RequestResults: Codable {
+struct ListRequest: Codable {
     var next: String?
     var previous: String?
     var results: [PokemonResults]

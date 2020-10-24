@@ -8,6 +8,6 @@
 import Foundation
 
 protocol RequestServices: class {
-    func reqIsComplete(results: RequestResults)
+    func reqIsComplete(results: ListRequest)
     func reqFailed(error: Error)
 }

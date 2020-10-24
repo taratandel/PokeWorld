@@ -36,7 +36,7 @@ class Networking {
                 return
             }
             do {
-                let json = try JSONDecoder().decode(RequestResults.self, from: data! )
+                let json = try JSONDecoder().decode(ListRequest.self, from: data! )
                 self.requestProtocol?.reqIsComplete(results: json)
             } catch {
                 self.requestProtocol?.reqFailed(error: RequestErrorType.badRequest)
