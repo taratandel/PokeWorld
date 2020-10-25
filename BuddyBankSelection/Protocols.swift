@@ -7,7 +7,11 @@
 
 import Foundation
 
-protocol RequestServices: class {
+protocol RequestResponseDelegate: class {
     func reqIsComplete(results: ListRequest)
     func reqFailed(error: Error)
+}
+
+protocol RequestDelegate: class {
+    
 }

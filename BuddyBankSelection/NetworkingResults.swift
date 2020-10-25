@@ -11,4 +11,11 @@ public enum RequestErrorType: Error {
     case noInternet
     case badRequest
     case serverError
+    case serializationError
+}
+
+/// the result types
+enum Result<T> {
+    case success(T)
+    case failure(Error)
 }

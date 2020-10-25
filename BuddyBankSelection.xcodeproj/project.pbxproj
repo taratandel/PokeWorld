@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		572596692543311100E61CFD /* ListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572596682543311100E61CFD /* ListRequest.swift */; };
+		572596692543311100E61CFD /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572596682543311100E61CFD /* Models.swift */; };
 		5725966E25435ABC00E61CFD /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725966D25435ABC00E61CFD /* Networking.swift */; };
 		572596732544586E00E61CFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572596722544586E00E61CFD /* Constants.swift */; };
 		5725967B2544597100E61CFD /* NetworkingResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725967A2544597100E61CFD /* NetworkingResults.swift */; };
 		5725968025445A9500E61CFD /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725967F25445A9500E61CFD /* Protocols.swift */; };
 		572596852544815A00E61CFD /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572596842544815A00E61CFD /* Reachability.swift */; };
+		572596932544EA0700E61CFD /* ListRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572596922544EA0700E61CFD /* ListRequestHandler.swift */; };
+		572596942544EA0700E61CFD /* ListRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572596922544EA0700E61CFD /* ListRequestHandler.swift */; };
 		57F411222542CF69000A699B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411212542CF69000A699B /* AppDelegate.swift */; };
 		57F411242542CF69000A699B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411232542CF69000A699B /* SceneDelegate.swift */; };
 		57F411262542CF69000A699B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411252542CF69000A699B /* ViewController.swift */; };
@@ -41,12 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		572596682543311100E61CFD /* ListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRequest.swift; sourceTree = "<group>"; };
+		572596682543311100E61CFD /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		5725966D25435ABC00E61CFD /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		572596722544586E00E61CFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5725967A2544597100E61CFD /* NetworkingResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingResults.swift; sourceTree = "<group>"; };
 		5725967F25445A9500E61CFD /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		572596842544815A00E61CFD /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		572596922544EA0700E61CFD /* ListRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRequestHandler.swift; sourceTree = "<group>"; };
 		57F4111E2542CF69000A699B /* BuddyBankSelection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuddyBankSelection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F411212542CF69000A699B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57F411232542CF69000A699B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,12 +121,13 @@
 				57F4112A2542CF6C000A699B /* Assets.xcassets */,
 				57F4112C2542CF6C000A699B /* LaunchScreen.storyboard */,
 				57F4112F2542CF6C000A699B /* Info.plist */,
-				572596682543311100E61CFD /* ListRequest.swift */,
+				572596682543311100E61CFD /* Models.swift */,
 				5725966D25435ABC00E61CFD /* Networking.swift */,
 				572596722544586E00E61CFD /* Constants.swift */,
 				5725967A2544597100E61CFD /* NetworkingResults.swift */,
 				5725967F25445A9500E61CFD /* Protocols.swift */,
 				572596842544815A00E61CFD /* Reachability.swift */,
+				572596922544EA0700E61CFD /* ListRequestHandler.swift */,
 			);
 			path = BuddyBankSelection;
 			sourceTree = "<group>";
@@ -278,11 +282,12 @@
 			files = (
 				57F411262542CF69000A699B /* ViewController.swift in Sources */,
 				572596732544586E00E61CFD /* Constants.swift in Sources */,
+				572596932544EA0700E61CFD /* ListRequestHandler.swift in Sources */,
 				5725967B2544597100E61CFD /* NetworkingResults.swift in Sources */,
 				5725966E25435ABC00E61CFD /* Networking.swift in Sources */,
 				57F411222542CF69000A699B /* AppDelegate.swift in Sources */,
 				572596852544815A00E61CFD /* Reachability.swift in Sources */,
-				572596692543311100E61CFD /* ListRequest.swift in Sources */,
+				572596692543311100E61CFD /* Models.swift in Sources */,
 				57F411242542CF69000A699B /* SceneDelegate.swift in Sources */,
 				5725968025445A9500E61CFD /* Protocols.swift in Sources */,
 			);
@@ -292,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				572596942544EA0700E61CFD /* ListRequestHandler.swift in Sources */,
 				57F411392542CF6C000A699B /* BuddyBankSelectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
