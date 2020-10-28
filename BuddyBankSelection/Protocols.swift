@@ -11,7 +11,3 @@ protocol RequestResponseDelegate: class {
     func reqIsComplete(results: ListRequest)
     func reqFailed(error: Error)
 }
-
-protocol RequestDelegate: class {
-    
-}
