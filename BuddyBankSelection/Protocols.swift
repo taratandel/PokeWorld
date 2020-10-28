@@ -11,3 +11,7 @@ protocol RequestResponseDelegate: class {
     func reqIsComplete(results: ListRequest)
     func reqFailed(error: Error)
 }
+
+protocol ListRequestHandlerDelegate: class {
+    func requesForTheList(url: String)
+}
