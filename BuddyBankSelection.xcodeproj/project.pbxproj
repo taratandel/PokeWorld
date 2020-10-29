@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		575E7FEE2546326900C01DE3 /* ListPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575E7FED2546326900C01DE3 /* ListPokemonViewController.swift */; };
 		575E7FF42548B5EB00C01DE3 /* PkemonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575E7FF32548B5EB00C01DE3 /* PkemonListTableViewCell.swift */; };
-		575E7FF52548B5EB00C01DE3 /* PkemonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575E7FF32548B5EB00C01DE3 /* PkemonListTableViewCell.swift */; };
 		57F411222542CF69000A699B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411212542CF69000A699B /* AppDelegate.swift */; };
 		57F411242542CF69000A699B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411232542CF69000A699B /* SceneDelegate.swift */; };
 		57F4112B2542CF6C000A699B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F4112A2542CF6C000A699B /* Assets.xcassets */; };
@@ -77,15 +76,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		575E7FF92548B5F600C01DE3 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				575E7FED2546326900C01DE3 /* ListPokemonViewController.swift */,
-				575E7FF32548B5EB00C01DE3 /* PkemonListTableViewCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		57F411152542CF69000A699B = {
 			isa = PBXGroup;
 			children = (
@@ -114,7 +104,8 @@
 				57F4112A2542CF6C000A699B /* Assets.xcassets */,
 				57F4112C2542CF6C000A699B /* LaunchScreen.storyboard */,
 				57F4112F2542CF6C000A699B /* Info.plist */,
-				575E7FF92548B5F600C01DE3 /* View */,
+				575E7FED2546326900C01DE3 /* ListPokemonViewController.swift */,
+				575E7FF32548B5EB00C01DE3 /* PkemonListTableViewCell.swift */,
 			);
 			path = BuddyBankSelection;
 			sourceTree = "<group>";
@@ -278,7 +269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				57F411392542CF6C000A699B /* BuddyBankSelectionTests.swift in Sources */,
-				575E7FF52548B5EB00C01DE3 /* PkemonListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
