@@ -19,6 +19,9 @@ class ListRequestHandler {
     }
     var network = Networking()
     
+}
+
+extension ListRequestHandler: ListRequestHandlerDelegate {
     func requesForTheList(url: String) {
         self.network.doTheReq(url: url) {
             results in

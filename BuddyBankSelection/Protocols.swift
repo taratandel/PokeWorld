@@ -18,6 +18,12 @@ protocol ListRequestHandlerDelegate: class {
 }
 // presenter -> view
 protocol ListPresenterDelegate: class {
-    func reloadPage (nameList: [String])
     func showAlert (title: String, message: String, actions: [UIAlertAction])
+    func reloadPage()
+}
+
+protocol ListViewDelegate: class {
+    func getElementForIndexPath(index: IndexPath) -> String?
+    func getNumberOfElements(in section: Int?) -> Int
+    func viewDidLoad()
 }

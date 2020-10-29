@@ -9,11 +9,17 @@ import Foundation
 import UIKit
 
 class PokemonListPresenter:RequestResponseDelegate {
-    
+    // delegates
     var reqHandler: ListRequestHandlerDelegate?
     var view: ListPresenterDelegate?
     
+    private var pokemonResults = [PokemonResults]()
+    
     var url = EndPoints.serverFirstList
+    
+    init(view: ListPresenterDelegate) {
+        self.view = view
+    }
     private func reqForTheList() {
         if url == "" {return}
         reqHandler?.requesForTheList(url: url)
@@ -30,6 +36,8 @@ class PokemonListPresenter:RequestResponseDelegate {
         }
         else {
             url = results.next!
+            self.pokemonResults.append(contentsOf: results.results)
+            view?.reloadPage()
         }
          //TODO: pass the refactor list to the view
     }
@@ -75,4 +83,33 @@ class PokemonListPresenter:RequestResponseDelegate {
         view?.showAlert(title: title, message: alertText, actions: actions)
     }
     
+}
+
+extension PokemonListPresenter: ListViewDelegate {
+    func viewDidLoad() {
+        reqHandler = ListRequestHandler(requestProtocol: self)
+        self.reqForTheList()
+    }
+    
+    func getElementForIndexPath(index: IndexPath) -> String? {
+        let numberOfResults = pokemonResults.count
+        if index.row == numberOfResults - 2 {
+            self.reqForTheList()
+        }
+        if index.row < numberOfResults - 1 {
+            return pokemonResults[index.row].name
+        }
+        else {
+            let alertText = "Something's went wrong!"
+            let actions = [UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            })]
+            let title = "Ooops!"
+            view?.showAlert(title: title, message: alertText, actions: actions)
+            return nil
+        }
+    }
+    
+    func getNumberOfElements(in section: Int?) -> Int {
+        return pokemonResults.count
+    }
 }

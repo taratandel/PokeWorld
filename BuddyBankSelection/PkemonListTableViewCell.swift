@@ -33,25 +33,24 @@ class PkemonListTableViewCell: UITableViewCell {
         return label
     }()
     
-
-
+    
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        containerView.addSubview(nameLabel)
-        self.contentView.addSubview(containerView)
         
         
-        containerView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
-        containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant:50).isActive = true
+        self.containerView.addSubview(self.nameLabel)
+        self.contentView.addSubview(self.containerView)
+        self.containerView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
+        self.containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
+        self.containerView.heightAnchor.constraint(equalToConstant:50).isActive = true
         
-        nameLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
-        nameLabel.widthAnchor.constraint(equalTo: self.contentView.widthAnchor).isActive = true
-                
+        self.nameLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor).isActive = true
+        self.nameLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
+        self.nameLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
+        self.nameLabel.widthAnchor.constraint(equalTo: self.contentView.widthAnchor).isActive = true
         
     }
     
