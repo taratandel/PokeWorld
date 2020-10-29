@@ -34,6 +34,7 @@ class PkemonListTableViewCell: UITableViewCell {
     }()
     
     
+    let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -57,6 +58,19 @@ class PkemonListTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
+    }
+    
+    func showActivityIndicator() {
+        activityIndicator.center = containerView.center
+        
+        activityIndicator.hidesWhenStopped = true
+        
+        activityIndicator.startAnimating()
+        containerView.addSubview(activityIndicator)
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
     }
     
 }
