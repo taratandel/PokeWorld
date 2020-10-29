@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class PokemonListPresenter:RequestResponseDelegate {
+class PokemonListPresenter:ListRequestResponseDelegate {
     // delegates
-    var reqHandler: ListRequestHandlerDelegate?
+    var reqHandler: RequestHandlerDelegate?
     var view: ListPresenterDelegate?
     
     private var pokemonResults = [PokemonResults]()
@@ -32,14 +32,19 @@ class PokemonListPresenter:RequestResponseDelegate {
             let actions = [UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
             })]
             view?.showAlert(title: "WoW you made it", message: alertText, actions: actions)
-            //TODO: show alert that it's finished
         }
-        else {
+        else if results.results != nil{
             url = results.next!
-            self.pokemonResults.append(contentsOf: results.results)
+            self.pokemonResults.append(contentsOf: results.results!)
             view?.reloadPage()
         }
-         //TODO: pass the refactor list to the view
+        else {
+            let alertText = "It's finished sorry :("
+            url = ""
+            let actions = [UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            })]
+            view?.showAlert(title: "WoW you made it", message: alertText, actions: actions)
+        }
     }
     
     func reqFailed(error: Error) {

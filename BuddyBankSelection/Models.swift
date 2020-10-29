@@ -6,11 +6,11 @@
 //
 
 import Foundation
-
+// Models For List
 struct ListRequest: Codable {
     var next: String?
     var previous: String?
-    var results: [PokemonResults]
+    var results: [PokemonResults]?
 }
 
 struct PokemonResults: Codable {
@@ -18,3 +18,33 @@ struct PokemonResults: Codable {
     var url: String?
 }
 
+
+// Models For Details
+
+struct DetailsRequest: Codable {
+    var name: String?
+    var id: Int?
+    var stats: [Stats]?
+    var types: [Types]?
+    
+}
+
+struct Stats: Codable {
+    var base_stat: Int?
+    var effort: Int?
+    var stat: Stat?
+}
+
+struct Stat: Codable {
+    var name: String?
+    var url: String?
+}
+
+struct Types: Codable {
+    var slot: Int?
+    var type: Type?
+}
+
+struct Type: Codable {
+    var name: String?
+}
