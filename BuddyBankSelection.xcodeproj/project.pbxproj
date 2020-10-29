@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		572596692543311100E61CFD /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572596682543311100E61CFD /* Models.swift */; };
 		5725966E25435ABC00E61CFD /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725966D25435ABC00E61CFD /* Networking.swift */; };
 		572596732544586E00E61CFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572596722544586E00E61CFD /* Constants.swift */; };
@@ -20,6 +21,12 @@
 		57F411222542CF69000A699B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411212542CF69000A699B /* AppDelegate.swift */; };
 		57F411242542CF69000A699B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411232542CF69000A699B /* SceneDelegate.swift */; };
 		57F411262542CF69000A699B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411252542CF69000A699B /* ViewController.swift */; };
+=======
+		575E7FEE2546326900C01DE3 /* ListPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575E7FED2546326900C01DE3 /* ListPokemonViewController.swift */; };
+		575E7FF42548B5EB00C01DE3 /* PkemonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575E7FF32548B5EB00C01DE3 /* PkemonListTableViewCell.swift */; };
+		57F411222542CF69000A699B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411212542CF69000A699B /* AppDelegate.swift */; };
+		57F411242542CF69000A699B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411232542CF69000A699B /* SceneDelegate.swift */; };
+>>>>>>> tableView
 		57F4112B2542CF6C000A699B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F4112A2542CF6C000A699B /* Assets.xcassets */; };
 		57F4112E2542CF6C000A699B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F4112C2542CF6C000A699B /* LaunchScreen.storyboard */; };
 		57F411392542CF6C000A699B /* BuddyBankSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411382542CF6C000A699B /* BuddyBankSelectionTests.swift */; };
@@ -44,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		572596682543311100E61CFD /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		5725966D25435ABC00E61CFD /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		572596722544586E00E61CFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -56,6 +64,13 @@
 		57F411212542CF69000A699B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57F411232542CF69000A699B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		57F411252542CF69000A699B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+=======
+		575E7FED2546326900C01DE3 /* ListPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPokemonViewController.swift; sourceTree = "<group>"; };
+		575E7FF32548B5EB00C01DE3 /* PkemonListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PkemonListTableViewCell.swift; sourceTree = "<group>"; };
+		57F4111E2542CF69000A699B /* BuddyBankSelection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuddyBankSelection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57F411212542CF69000A699B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		57F411232542CF69000A699B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+>>>>>>> tableView
 		57F4112A2542CF6C000A699B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57F4112D2542CF6C000A699B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57F4112F2542CF6C000A699B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +143,7 @@
 			children = (
 				57F411212542CF69000A699B /* AppDelegate.swift */,
 				57F411232542CF69000A699B /* SceneDelegate.swift */,
+<<<<<<< HEAD
 				57F411252542CF69000A699B /* ViewController.swift */,
 				57F4112A2542CF6C000A699B /* Assets.xcassets */,
 				57F4112C2542CF6C000A699B /* LaunchScreen.storyboard */,
@@ -137,6 +153,13 @@
 				572596722544586E00E61CFD /* Constants.swift */,
 				5725967F25445A9500E61CFD /* Protocols.swift */,
 				5751213E25496D190017E0C4 /* PokemonListPresenter.swift */,
+=======
+				57F4112A2542CF6C000A699B /* Assets.xcassets */,
+				57F4112C2542CF6C000A699B /* LaunchScreen.storyboard */,
+				57F4112F2542CF6C000A699B /* Info.plist */,
+				575E7FED2546326900C01DE3 /* ListPokemonViewController.swift */,
+				575E7FF32548B5EB00C01DE3 /* PkemonListTableViewCell.swift */,
+>>>>>>> tableView
 			);
 			path = BuddyBankSelection;
 			sourceTree = "<group>";
@@ -288,12 +311,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				57F411262542CF69000A699B /* ViewController.swift in Sources */,
 				572596732544586E00E61CFD /* Constants.swift in Sources */,
 				572596932544EA0700E61CFD /* ListRequestHandler.swift in Sources */,
 				5751213F25496D190017E0C4 /* PokemonListPresenter.swift in Sources */,
 				5725967B2544597100E61CFD /* NetworkingResults.swift in Sources */,
 				5725966E25435ABC00E61CFD /* Networking.swift in Sources */,
+=======
+				575E7FEE2546326900C01DE3 /* ListPokemonViewController.swift in Sources */,
+				575E7FF42548B5EB00C01DE3 /* PkemonListTableViewCell.swift in Sources */,
+>>>>>>> tableView
 				57F411222542CF69000A699B /* AppDelegate.swift in Sources */,
 				572596852544815A00E61CFD /* Reachability.swift in Sources */,
 				572596692543311100E61CFD /* Models.swift in Sources */,
