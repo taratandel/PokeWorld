@@ -26,6 +26,10 @@
 		57E1E91C254BC7C4000ED521 /* Comic Sans MS Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57E1E91A254BC7C4000ED521 /* Comic Sans MS Bold.ttf */; };
 		57E1E91D254BC7C4000ED521 /* Comic Sans MS.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57E1E91B254BC7C4000ED521 /* Comic Sans MS.ttf */; };
 		57E1E93F254BE3FB000ED521 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E93E254BE3FB000ED521 /* ShadowView.swift */; };
+		57E1E94B254C5E9F000ED521 /* PokemonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E94A254C5E9F000ED521 /* PokemonDetailsViewController.swift */; };
+		57E1E953254C60E7000ED521 /* ImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E952254C60E7000ED521 /* ImageView+Extension.swift */; };
+		57E1E959254C655A000ED521 /* TagBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E958254C655A000ED521 /* TagBarViewController.swift */; };
+		57E1E961254C678A000ED521 /* TagBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E960254C678A000ED521 /* TagBarCollectionViewCell.swift */; };
 		57F411222542CF69000A699B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411212542CF69000A699B /* AppDelegate.swift */; };
 		57F411242542CF69000A699B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411232542CF69000A699B /* SceneDelegate.swift */; };
 		57F411262542CF69000A699B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411252542CF69000A699B /* ViewController.swift */; };
@@ -70,6 +74,10 @@
 		57E1E91A254BC7C4000ED521 /* Comic Sans MS Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comic Sans MS Bold.ttf"; sourceTree = "<group>"; };
 		57E1E91B254BC7C4000ED521 /* Comic Sans MS.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comic Sans MS.ttf"; sourceTree = "<group>"; };
 		57E1E93E254BE3FB000ED521 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShadowView.swift; path = ../ShadowView.swift; sourceTree = "<group>"; };
+		57E1E94A254C5E9F000ED521 /* PokemonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewController.swift; sourceTree = "<group>"; };
+		57E1E952254C60E7000ED521 /* ImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Extension.swift"; sourceTree = "<group>"; };
+		57E1E958254C655A000ED521 /* TagBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBarViewController.swift; sourceTree = "<group>"; };
+		57E1E960254C678A000ED521 /* TagBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		57F4111E2542CF69000A699B /* BuddyBankSelection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuddyBankSelection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F411212542CF69000A699B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57F411232542CF69000A699B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +139,25 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		57E1E949254C5E78000ED521 /* PokemonDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				57E1E957254C653A000ED521 /* TagbarView */,
+				57E1E94A254C5E9F000ED521 /* PokemonDetailsViewController.swift */,
+				57E1E952254C60E7000ED521 /* ImageView+Extension.swift */,
+			);
+			path = PokemonDetailsView;
+			sourceTree = "<group>";
+		};
+		57E1E957254C653A000ED521 /* TagbarView */ = {
+			isa = PBXGroup;
+			children = (
+				57E1E958254C655A000ED521 /* TagBarViewController.swift */,
+				57E1E960254C678A000ED521 /* TagBarCollectionViewCell.swift */,
+			);
+			path = TagbarView;
+			sourceTree = "<group>";
+		};
 		57F411152542CF69000A699B = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +181,7 @@
 		57F411202542CF69000A699B /* BuddyBankSelection */ = {
 			isa = PBXGroup;
 			children = (
+				57E1E949254C5E78000ED521 /* PokemonDetailsView */,
 				57E1E919254BC758000ED521 /* Fonts */,
 				57F411212542CF69000A699B /* AppDelegate.swift */,
 				57F411232542CF69000A699B /* SceneDelegate.swift */,
@@ -328,12 +356,15 @@
 				57F411262542CF69000A699B /* ViewController.swift in Sources */,
 				572596732544586E00E61CFD /* Constants.swift in Sources */,
 				572596932544EA0700E61CFD /* ListRequestHandler.swift in Sources */,
+				57E1E94B254C5E9F000ED521 /* PokemonDetailsViewController.swift in Sources */,
 				5751213F25496D190017E0C4 /* PokemonListPresenter.swift in Sources */,
 				5725967B2544597100E61CFD /* NetworkingResults.swift in Sources */,
 				57E1E90B254BC038000ED521 /* BaseVC.swift in Sources */,
 				5725966E25435ABC00E61CFD /* Networking.swift in Sources */,
 				575E7FEE2546326900C01DE3 /* ListPokemonViewController.swift in Sources */,
 				575E7FF42548B5EB00C01DE3 /* PkemonListTableViewCell.swift in Sources */,
+				57E1E953254C60E7000ED521 /* ImageView+Extension.swift in Sources */,
+				57E1E961254C678A000ED521 /* TagBarCollectionViewCell.swift in Sources */,
 				57F411222542CF69000A699B /* AppDelegate.swift in Sources */,
 				57512175254ACD2E0017E0C4 /* DetailsRequestHandler.swift in Sources */,
 				572596852544815A00E61CFD /* Reachability.swift in Sources */,
@@ -343,6 +374,7 @@
 				5725968025445A9500E61CFD /* Protocols.swift in Sources */,
 				57E1E93F254BE3FB000ED521 /* ShadowView.swift in Sources */,
 				57E1E910254BC0CF000ED521 /* IndicatorViewController.swift in Sources */,
+				57E1E959254C655A000ED521 /* TagBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
