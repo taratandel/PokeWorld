@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListPokemonViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ListPokemonViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     let pokemonTableView = UITableView() // view
     var listViewDelegate: ListViewDelegate?

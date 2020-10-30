@@ -6,13 +6,14 @@
 //
 
 import UIKit
-
+import Foundation
 class PkemonListTableViewCell: UITableViewCell {
     
     var pokemonName: String? {
         didSet {
             nameLabel.text = pokemonName
             stopActivityIndicator()
+            customizeTheView()
             setNeedsLayout()
         }
     }
@@ -26,7 +27,7 @@ class PkemonListTableViewCell: UITableViewCell {
     
     let nameLabel:UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.defaultFont
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -34,13 +35,19 @@ class PkemonListTableViewCell: UITableViewCell {
         return label
     }()
     
-    
     let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+    
+    var shadowView: ShadowView = {
+        let view = ShadowView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUPlayout()
+        showActivityIndicator()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,52 +55,64 @@ class PkemonListTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
-    override func awakeFromNib() {
-        customizeTheView()
-        showActivityIndicator()
-    }
     
     func showActivityIndicator() {
-        activityIndicator.center = containerView.center
+        activityIndicator.center = contentView.center
         
         activityIndicator.hidesWhenStopped = true
         
         activityIndicator.startAnimating()
-        containerView.addSubview(activityIndicator)
+        contentView.addSubview(activityIndicator)
     }
     
     func stopActivityIndicator() {
         activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
     }
     
     func setUPlayout() {
+        // adding subview
         self.containerView.addSubview(self.nameLabel)
         self.contentView.addSubview(self.containerView)
-        self.containerView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
-        self.containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
-        self.containerView.heightAnchor.constraint(equalToConstant:50).isActive = true
+        self.contentView.addSubview(self.shadowView)
         
-        self.nameLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor).isActive = true
-        self.nameLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
-        self.nameLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
-        self.nameLabel.widthAnchor.constraint(equalTo: self.contentView.widthAnchor).isActive = true
+        // sending the shadow to the back
+        self.contentView.sendSubviewToBack(shadowView)
+        
+        // specifying the constraints for containerView
+        self.containerView.topAnchor.constraint(equalTo:self.contentView.topAnchor, constant: 4).isActive = true
+        self.containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-11).isActive = true
+        self.containerView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 11).isActive = true
+        self.containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -4).isActive = true
+        
+        // specifying the constraints for shadowView
+
+        self.shadowView.topAnchor.constraint(equalTo:self.contentView.topAnchor, constant: 4).isActive = true
+        self.shadowView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
+        self.shadowView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
+        self.shadowView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -4).isActive = true
+
+        // specifying the constraints for nameLabel
+        self.nameLabel.centerXAnchor.constraint(equalTo:self.containerView.centerXAnchor).isActive = true
+        self.nameLabel.centerYAnchor.constraint(equalTo:self.centerYAnchor).isActive = true
+        
+
     }
- 
+    
     func customizeTheView(){
         
         // MARK: - corner radius
-        self.contentView.layer.cornerRadius = 5.0
-        self.contentView.layer.borderWidth = 1.0
-        self.contentView.layer.borderColor = UIColor.clear.cgColor
-        self.contentView.layer.masksToBounds = true
         
-        // MARK: - shadow
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        self.layer.shadowRadius = 2.0
-        self.layer.shadowOpacity = 0.5
-        self.layer.masksToBounds = false
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
+        self.containerView.layer.cornerRadius = 5.0
+        self.containerView.layer.borderWidth = 1.0
+        self.containerView.layer.borderColor = UIColor.clear.cgColor
+        self.containerView.layer.masksToBounds = true
         
+        // MARK: - Shadow
+        shadowView.bounds = containerView.bounds
+        
+        // MARK: - BackGround
+        self.containerView.backgroundColor = .random()
+
     }
 }
