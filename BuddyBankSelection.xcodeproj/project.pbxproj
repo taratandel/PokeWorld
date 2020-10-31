@@ -39,6 +39,8 @@
 		57E1E983254C757D000ED521 /* CustomSegments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E978254C757D000ED521 /* CustomSegments.swift */; };
 		57E1E984254C757D000ED521 /* DataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E979254C757D000ED521 /* DataEntry.swift */; };
 		57E1E993254DADF6000ED521 /* ListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E992254DADF6000ED521 /* ListProtocols.swift */; };
+		57E1E99F254DAEBF000ED521 /* DetailsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E99E254DAEBF000ED521 /* DetailsProtocol.swift */; };
+		57E1E9A4254DAED5000ED521 /* PokemonDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E9A3254DAED5000ED521 /* PokemonDetailsPresenter.swift */; };
 		57F411222542CF69000A699B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411212542CF69000A699B /* AppDelegate.swift */; };
 		57F411242542CF69000A699B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411232542CF69000A699B /* SceneDelegate.swift */; };
 		57F4112B2542CF6C000A699B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F4112A2542CF6C000A699B /* Assets.xcassets */; };
@@ -95,6 +97,8 @@
 		57E1E978254C757D000ED521 /* CustomSegments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegments.swift; sourceTree = "<group>"; };
 		57E1E979254C757D000ED521 /* DataEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEntry.swift; sourceTree = "<group>"; };
 		57E1E992254DADF6000ED521 /* ListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProtocols.swift; sourceTree = "<group>"; };
+		57E1E99E254DAEBF000ED521 /* DetailsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProtocol.swift; sourceTree = "<group>"; };
+		57E1E9A3254DAED5000ED521 /* PokemonDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsPresenter.swift; sourceTree = "<group>"; };
 		57F4111E2542CF69000A699B /* BuddyBankSelection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuddyBankSelection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F411212542CF69000A699B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57F411232542CF69000A699B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +217,8 @@
 			children = (
 				57512174254ACD2E0017E0C4 /* DetailsRequestHandler.swift */,
 				57E1E949254C5E78000ED521 /* PokemonDetailsView */,
+				57E1E99E254DAEBF000ED521 /* DetailsProtocol.swift */,
+				57E1E9A3254DAED5000ED521 /* PokemonDetailsPresenter.swift */,
 			);
 			path = DetailsModule;
 			sourceTree = "<group>";
@@ -431,6 +437,7 @@
 				572596932544EA0700E61CFD /* ListRequestHandler.swift in Sources */,
 				57E1E94B254C5E9F000ED521 /* PokemonDetailsViewController.swift in Sources */,
 				5751213F25496D190017E0C4 /* PokemonListPresenter.swift in Sources */,
+				57E1E99F254DAEBF000ED521 /* DetailsProtocol.swift in Sources */,
 				5725967B2544597100E61CFD /* NetworkingResults.swift in Sources */,
 				57E1E980254C757D000ED521 /* BeautifulBarChartPresenter.swift in Sources */,
 				57E1E90B254BC038000ED521 /* BaseVC.swift in Sources */,
@@ -439,6 +446,7 @@
 				575E7FEE2546326900C01DE3 /* ListPokemonViewController.swift in Sources */,
 				57E1E97B254C757D000ED521 /* BeautifulBarChart.swift in Sources */,
 				57E1E984254C757D000ED521 /* DataEntry.swift in Sources */,
+				57E1E9A4254DAED5000ED521 /* PokemonDetailsPresenter.swift in Sources */,
 				575E7FF42548B5EB00C01DE3 /* PkemonListTableViewCell.swift in Sources */,
 				57E1E983254C757D000ED521 /* CustomSegments.swift in Sources */,
 				57E1E981254C757D000ED521 /* ArrayExtension.swift in Sources */,
