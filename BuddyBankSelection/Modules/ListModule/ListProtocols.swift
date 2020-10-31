@@ -1,17 +1,11 @@
 //
-//  Protocols.swift
+//  ListProtocols.swift
 //  BuddyBankSelection
 //
-//  Created by Tara Tandel on 24/10/2020.
+//  Created by Tara Tandel on 31/10/2020.
 //
 
-import Foundation
 import UIKit
-// Listhandler -> networking
-protocol ListRequestResponseDelegate: class {
-    func reqIsComplete(results: ListRequest)
-    func reqFailed(error: Error)
-}
 // Listpresenter -> Listhandler
 protocol RequestHandlerDelegate: class {
     func requesForTheList(url: String)

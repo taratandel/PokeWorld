@@ -11,10 +11,6 @@ protocol TagCollectionViewCellProtocol: class {
     func buttonClicked(at index: Int, shouldSelect: Bool)
 }
 class TagCollectionViewCell: UICollectionViewCell {
-    
-    // MARK: - Delegates
-    weak var delegate: TagCollectionViewCellProtocol?
-    
     // MARK: - Properties
     var details: String = ""
     var index: Int = -1
@@ -54,17 +50,8 @@ class TagCollectionViewCell: UICollectionViewCell {
         self.tagDetailLabel.centerYAnchor.constraint(equalTo: cellBackgroundView.centerYAnchor).isActive = true
         self.tagDetailLabel.leadingAnchor.constraint(equalTo: cellBackgroundView.leadingAnchor, constant: 4).isActive = true
     }
-    
-    // MARK: - Delegates
-    func tapped(shouldSelect: Bool, with deSelectedIndexPath: Int? = nil) {
-        isSelectedBefore = shouldSelect
-        setupUI()
-        if deSelectedIndexPath == index {return}
-        delegate?.buttonClicked(at: index, shouldSelect: isSelectedBefore)
-    }
 
-    func setup(delegate: TagCollectionViewCellProtocol, details: String, index: Int) {
-        self.delegate = delegate
+    func setup(details: String, index: Int) {
         self.details = details
         self.index = index
         setupUI()
@@ -75,7 +62,7 @@ class TagCollectionViewCell: UICollectionViewCell {
         self.cellBackgroundColor = cellBackgroundColor
         self.textColor = textColor
         
-        self.setup(delegate: delegate, details: details, index: index)
+        self.setup(details: details, index: index)
     }
     
     private func setupUI() {

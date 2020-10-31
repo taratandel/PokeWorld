@@ -9,7 +9,7 @@ import UIKit
 
 class TopBarViewController: UIViewController {
     // MARK: - IBOutlets
-    weak var topBarCollectionView: UICollectionView!
+    var topBarCollectionView: UICollectionView!
     
     // MARK: - Properties
     var scopes: [String]?
@@ -19,51 +19,40 @@ class TopBarViewController: UIViewController {
     // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupConstraints()
+        
         setupUI()
+
+        setupConstraints()
     }
     
     func setupConstraints() {
+        self.view.heightAnchor.constraint(equalToConstant: 48).isActive = true
         self.view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: topBarCollectionView.trailingAnchor, constant: 8).isActive = true
         
         self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: topBarCollectionView.bottomAnchor, constant: 8).isActive = true
         topBarCollectionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
-        topBarCollectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 8).isActive = true
+        topBarCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
         topBarCollectionView.heightAnchor.constraint(equalToConstant: 32).isActive = true
     }
     
     func setupUI() {
-        let nib = UINib(nibName: "TagCollectionViewCell", bundle: nil)
-        topBarCollectionView.register(nib, forCellWithReuseIdentifier: "TagCell")
-        
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionViewFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         collectionViewFlowLayout.scrollDirection = .horizontal
-        
+        topBarCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: collectionViewFlowLayout)
+        let nib = UINib(nibName: "TagCollectionViewCell", bundle: nil)
+        topBarCollectionView.register(nib, forCellWithReuseIdentifier: "TagCell")
         topBarCollectionView.collectionViewLayout = collectionViewFlowLayout
         topBarCollectionView.contentInsetAdjustmentBehavior = .always
         topBarCollectionView.collectionViewLayout.invalidateLayout()
         self.topBarCollectionView.delegate = self
         self.topBarCollectionView.dataSource = self
+        topBarCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(topBarCollectionView)
         
     }
 }
 
-// MARK: - UICollectionViewDelegate
-extension TopBarViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedIndexPath = selectedIndexPath != nil ? nil : indexPath
-
-        guard let cell = topBarCollectionView.cellForItem(at: indexPath) as? TagCollectionViewCell else { return }
-        cell.tapped(shouldSelect: selectedIndexPath != nil)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard let cell = topBarCollectionView.cellForItem(at: indexPath) as? TagCollectionViewCell else { return }
-        cell.tapped(shouldSelect: false, with: selectedIndexPath?.row )
-        selectedIndexPath = nil
-    }
-}
 // MARK: - UICollectionViewDataSource
 extension TopBarViewController: UICollectionViewDataSource {
         func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -78,7 +67,7 @@ extension TopBarViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let cell = topBarCollectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCollectionViewCell
-        cell.setup(delegate: self, details: scopes[indexPath.row], index: indexPath.row)
+        cell.setup(details: scopes[indexPath.row], index: indexPath.row)
         return cell
     }
 }

@@ -30,9 +30,17 @@
 		57E1E953254C60E7000ED521 /* ImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E952254C60E7000ED521 /* ImageView+Extension.swift */; };
 		57E1E959254C655A000ED521 /* TagBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E958254C655A000ED521 /* TagBarViewController.swift */; };
 		57E1E961254C678A000ED521 /* TagBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E960254C678A000ED521 /* TagBarCollectionViewCell.swift */; };
+		57E1E97A254C757D000ED521 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E96F254C757D000ED521 /* CALayerExtension.swift */; };
+		57E1E97B254C757D000ED521 /* BeautifulBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E970254C757D000ED521 /* BeautifulBarChart.swift */; };
+		57E1E97C254C757D000ED521 /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E971254C757D000ED521 /* UIBezierPathExtension.swift */; };
+		57E1E980254C757D000ED521 /* BeautifulBarChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E975254C757D000ED521 /* BeautifulBarChartPresenter.swift */; };
+		57E1E981254C757D000ED521 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E976254C757D000ED521 /* ArrayExtension.swift */; };
+		57E1E982254C757D000ED521 /* BeautifulBarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E977254C757D000ED521 /* BeautifulBarEntry.swift */; };
+		57E1E983254C757D000ED521 /* CustomSegments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E978254C757D000ED521 /* CustomSegments.swift */; };
+		57E1E984254C757D000ED521 /* DataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E979254C757D000ED521 /* DataEntry.swift */; };
+		57E1E993254DADF6000ED521 /* ListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E992254DADF6000ED521 /* ListProtocols.swift */; };
 		57F411222542CF69000A699B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411212542CF69000A699B /* AppDelegate.swift */; };
 		57F411242542CF69000A699B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411232542CF69000A699B /* SceneDelegate.swift */; };
-		57F411262542CF69000A699B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411252542CF69000A699B /* ViewController.swift */; };
 		57F4112B2542CF6C000A699B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F4112A2542CF6C000A699B /* Assets.xcassets */; };
 		57F4112E2542CF6C000A699B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F4112C2542CF6C000A699B /* LaunchScreen.storyboard */; };
 		57F411392542CF6C000A699B /* BuddyBankSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F411382542CF6C000A699B /* BuddyBankSelectionTests.swift */; };
@@ -73,15 +81,23 @@
 		57E1E914254BC3F0000ED521 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		57E1E91A254BC7C4000ED521 /* Comic Sans MS Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comic Sans MS Bold.ttf"; sourceTree = "<group>"; };
 		57E1E91B254BC7C4000ED521 /* Comic Sans MS.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comic Sans MS.ttf"; sourceTree = "<group>"; };
-		57E1E93E254BE3FB000ED521 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShadowView.swift; path = ../ShadowView.swift; sourceTree = "<group>"; };
+		57E1E93E254BE3FB000ED521 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		57E1E94A254C5E9F000ED521 /* PokemonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewController.swift; sourceTree = "<group>"; };
 		57E1E952254C60E7000ED521 /* ImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Extension.swift"; sourceTree = "<group>"; };
 		57E1E958254C655A000ED521 /* TagBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBarViewController.swift; sourceTree = "<group>"; };
 		57E1E960254C678A000ED521 /* TagBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBarCollectionViewCell.swift; sourceTree = "<group>"; };
+		57E1E96F254C757D000ED521 /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		57E1E970254C757D000ED521 /* BeautifulBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeautifulBarChart.swift; sourceTree = "<group>"; };
+		57E1E971254C757D000ED521 /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
+		57E1E975254C757D000ED521 /* BeautifulBarChartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeautifulBarChartPresenter.swift; sourceTree = "<group>"; };
+		57E1E976254C757D000ED521 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		57E1E977254C757D000ED521 /* BeautifulBarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeautifulBarEntry.swift; sourceTree = "<group>"; };
+		57E1E978254C757D000ED521 /* CustomSegments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegments.swift; sourceTree = "<group>"; };
+		57E1E979254C757D000ED521 /* DataEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEntry.swift; sourceTree = "<group>"; };
+		57E1E992254DADF6000ED521 /* ListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProtocols.swift; sourceTree = "<group>"; };
 		57F4111E2542CF69000A699B /* BuddyBankSelection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuddyBankSelection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F411212542CF69000A699B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57F411232542CF69000A699B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		57F411252542CF69000A699B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		57F4112A2542CF6C000A699B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57F4112D2542CF6C000A699B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57F4112F2542CF6C000A699B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,8 +140,6 @@
 				5725966D25435ABC00E61CFD /* Networking.swift */,
 				5725967A2544597100E61CFD /* NetworkingResults.swift */,
 				572596842544815A00E61CFD /* Reachability.swift */,
-				572596922544EA0700E61CFD /* ListRequestHandler.swift */,
-				57512174254ACD2E0017E0C4 /* DetailsRequestHandler.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -142,6 +156,7 @@
 		57E1E949254C5E78000ED521 /* PokemonDetailsView */ = {
 			isa = PBXGroup;
 			children = (
+				57E1E96E254C7461000ED521 /* BarChart */,
 				57E1E957254C653A000ED521 /* TagbarView */,
 				57E1E94A254C5E9F000ED521 /* PokemonDetailsViewController.swift */,
 				57E1E952254C60E7000ED521 /* ImageView+Extension.swift */,
@@ -156,6 +171,75 @@
 				57E1E960254C678A000ED521 /* TagBarCollectionViewCell.swift */,
 			);
 			path = TagbarView;
+			sourceTree = "<group>";
+		};
+		57E1E96E254C7461000ED521 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				57E1E976254C757D000ED521 /* ArrayExtension.swift */,
+				57E1E970254C757D000ED521 /* BeautifulBarChart.swift */,
+				57E1E975254C757D000ED521 /* BeautifulBarChartPresenter.swift */,
+				57E1E977254C757D000ED521 /* BeautifulBarEntry.swift */,
+				57E1E96F254C757D000ED521 /* CALayerExtension.swift */,
+				57E1E978254C757D000ED521 /* CustomSegments.swift */,
+				57E1E979254C757D000ED521 /* DataEntry.swift */,
+				57E1E971254C757D000ED521 /* UIBezierPathExtension.swift */,
+			);
+			path = BarChart;
+			sourceTree = "<group>";
+		};
+		57E1E98B254DA8E7000ED521 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				57E1E98D254DAD6B000ED521 /* DetailsModule */,
+				57E1E98C254DAD4C000ED521 /* ListModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		57E1E98C254DAD4C000ED521 /* ListModule */ = {
+			isa = PBXGroup;
+			children = (
+				572596922544EA0700E61CFD /* ListRequestHandler.swift */,
+				57E1E992254DADF6000ED521 /* ListProtocols.swift */,
+				5751213E25496D190017E0C4 /* PokemonListPresenter.swift */,
+				57E1E99A254DAE5E000ED521 /* ListView */,
+			);
+			path = ListModule;
+			sourceTree = "<group>";
+		};
+		57E1E98D254DAD6B000ED521 /* DetailsModule */ = {
+			isa = PBXGroup;
+			children = (
+				57512174254ACD2E0017E0C4 /* DetailsRequestHandler.swift */,
+				57E1E949254C5E78000ED521 /* PokemonDetailsView */,
+			);
+			path = DetailsModule;
+			sourceTree = "<group>";
+		};
+		57E1E991254DADCD000ED521 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				57E1E919254BC758000ED521 /* Fonts */,
+				57E1E93E254BE3FB000ED521 /* ShadowView.swift */,
+				57E1E914254BC3F0000ED521 /* Appearance.swift */,
+				57E1E90F254BC0CF000ED521 /* IndicatorViewController.swift */,
+				57E1E90A254BC038000ED521 /* BaseVC.swift */,
+				572596682543311100E61CFD /* Models.swift */,
+				572596722544586E00E61CFD /* Constants.swift */,
+				5725967F25445A9500E61CFD /* Protocols.swift */,
+				575E7FE025462FE700C01DE3 /* Networking */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		57E1E99A254DAE5E000ED521 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				575E7FF32548B5EB00C01DE3 /* PkemonListTableViewCell.swift */,
+				575E7FED2546326900C01DE3 /* ListPokemonViewController.swift */,
+			);
+			path = ListView;
 			sourceTree = "<group>";
 		};
 		57F411152542CF69000A699B = {
@@ -181,25 +265,13 @@
 		57F411202542CF69000A699B /* BuddyBankSelection */ = {
 			isa = PBXGroup;
 			children = (
-				57E1E949254C5E78000ED521 /* PokemonDetailsView */,
-				57E1E919254BC758000ED521 /* Fonts */,
+				57E1E991254DADCD000ED521 /* Common */,
+				57E1E98B254DA8E7000ED521 /* Modules */,
 				57F411212542CF69000A699B /* AppDelegate.swift */,
 				57F411232542CF69000A699B /* SceneDelegate.swift */,
-				57F411252542CF69000A699B /* ViewController.swift */,
-				572596682543311100E61CFD /* Models.swift */,
-				575E7FE025462FE700C01DE3 /* Networking */,
-				572596722544586E00E61CFD /* Constants.swift */,
-				5725967F25445A9500E61CFD /* Protocols.swift */,
-				5751213E25496D190017E0C4 /* PokemonListPresenter.swift */,
 				57F4112A2542CF6C000A699B /* Assets.xcassets */,
 				57F4112C2542CF6C000A699B /* LaunchScreen.storyboard */,
 				57F4112F2542CF6C000A699B /* Info.plist */,
-				57E1E93E254BE3FB000ED521 /* ShadowView.swift */,
-				575E7FED2546326900C01DE3 /* ListPokemonViewController.swift */,
-				575E7FF32548B5EB00C01DE3 /* PkemonListTableViewCell.swift */,
-				57E1E90A254BC038000ED521 /* BaseVC.swift */,
-				57E1E90F254BC0CF000ED521 /* IndicatorViewController.swift */,
-				57E1E914254BC3F0000ED521 /* Appearance.swift */,
 			);
 			path = BuddyBankSelection;
 			sourceTree = "<group>";
@@ -353,22 +425,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F411262542CF69000A699B /* ViewController.swift in Sources */,
 				572596732544586E00E61CFD /* Constants.swift in Sources */,
+				57E1E982254C757D000ED521 /* BeautifulBarEntry.swift in Sources */,
+				57E1E97C254C757D000ED521 /* UIBezierPathExtension.swift in Sources */,
 				572596932544EA0700E61CFD /* ListRequestHandler.swift in Sources */,
 				57E1E94B254C5E9F000ED521 /* PokemonDetailsViewController.swift in Sources */,
 				5751213F25496D190017E0C4 /* PokemonListPresenter.swift in Sources */,
 				5725967B2544597100E61CFD /* NetworkingResults.swift in Sources */,
+				57E1E980254C757D000ED521 /* BeautifulBarChartPresenter.swift in Sources */,
 				57E1E90B254BC038000ED521 /* BaseVC.swift in Sources */,
+				57E1E97A254C757D000ED521 /* CALayerExtension.swift in Sources */,
 				5725966E25435ABC00E61CFD /* Networking.swift in Sources */,
 				575E7FEE2546326900C01DE3 /* ListPokemonViewController.swift in Sources */,
+				57E1E97B254C757D000ED521 /* BeautifulBarChart.swift in Sources */,
+				57E1E984254C757D000ED521 /* DataEntry.swift in Sources */,
 				575E7FF42548B5EB00C01DE3 /* PkemonListTableViewCell.swift in Sources */,
+				57E1E983254C757D000ED521 /* CustomSegments.swift in Sources */,
+				57E1E981254C757D000ED521 /* ArrayExtension.swift in Sources */,
 				57E1E953254C60E7000ED521 /* ImageView+Extension.swift in Sources */,
 				57E1E961254C678A000ED521 /* TagBarCollectionViewCell.swift in Sources */,
 				57F411222542CF69000A699B /* AppDelegate.swift in Sources */,
 				57512175254ACD2E0017E0C4 /* DetailsRequestHandler.swift in Sources */,
 				572596852544815A00E61CFD /* Reachability.swift in Sources */,
 				57E1E915254BC3F0000ED521 /* Appearance.swift in Sources */,
+				57E1E993254DADF6000ED521 /* ListProtocols.swift in Sources */,
 				572596692543311100E61CFD /* Models.swift in Sources */,
 				57F411242542CF69000A699B /* SceneDelegate.swift in Sources */,
 				5725968025445A9500E61CFD /* Protocols.swift in Sources */,
