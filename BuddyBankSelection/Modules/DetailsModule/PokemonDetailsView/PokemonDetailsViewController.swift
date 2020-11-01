@@ -7,13 +7,14 @@
 
 import UIKit
 
-class PokemonDetailsViewController: BaseViewController {
-    let scrollView: UIScrollView = {
-        let view = UIScrollView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
+class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate {
+    //
+//    let scrollView: UIScrollView = {
+//        let view = UIScrollView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
+//
     var stackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +24,9 @@ class PokemonDetailsViewController: BaseViewController {
     
     lazy var pokemonImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.frame.size.height = 50
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame.size.height = 150
+        imageView.frame.size.width = stackView.frame.size.width 
         imageView.backgroundColor = .blue
         return imageView
     }()
@@ -41,10 +44,20 @@ class PokemonDetailsViewController: BaseViewController {
         return view
     }()
     
+    var presenter: DetailsViewDelegate?
+    override func reqAgain() {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = PokemonDetailsPresenter(view: self)
         setupView()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        presenter?.viewDidLoad(url: "https://pokeapi.co/api/v2/pokemon/38/")
     }
     
     private func setupView() {
@@ -75,16 +88,36 @@ class PokemonDetailsViewController: BaseViewController {
         stackView.spacing = 0
         stackView.clipsToBounds = false
         
-        setupStackView()
+//        setupStackView()
         // setup the tagbar view
         // setup the stats with their power
     }
-    
-    func setupStackView() {
-        stackView.insertSubview(pokemonImage, at: 0)
-//        stackView.insertSubview(tagBarView.view, at: 1)
-        stackView.insertSubview(barChartView, at: 2)
+    func reloadPage() {
+        createStackView()
     }
+    
+    func createStackView() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+//            self.stackView.insertSubview(self.pokemonImage, at:0)
+            guard let imageURL = self.presenter?.getImageURL() else {
+            return //TODO: do smth for the erro
+        }
+            self.pokemonImage.load(url: imageURL){isFinished in
+                if isFinished {
+                    self.stackView.insertSubview(self.pokemonImage, at:0)
+                }
+            }
+        }
+    }
+    
+//    func setupStackView() {
+//        stackView.insertSubview(pokemonImage, at: 0)
+////        stackView.insertSubview(tagBarView.view, at: 1)
+//        stackView.insertSubview(barChartView, at: 2)
+//    }
 
 
 }

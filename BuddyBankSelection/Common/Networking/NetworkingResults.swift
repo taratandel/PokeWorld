@@ -12,6 +12,7 @@ public enum RequestErrorType: Error {
     case badRequest
     case serverError
     case serializationError
+    case finished
 }
 
 /// the result types

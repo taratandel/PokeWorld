@@ -7,8 +7,12 @@
 
 import Foundation
 import UIKit
-// Listhandler -> networking
-protocol ListRequestResponseDelegate: class {
-    func reqIsComplete(results: ListRequest)
+
+
+protocol ReqErrorDelegate: class {
     func reqFailed(error: Error)
+}
+
+protocol RequestHandlerDelegate: class {
+    func requesForTheList(url: String)
 }
