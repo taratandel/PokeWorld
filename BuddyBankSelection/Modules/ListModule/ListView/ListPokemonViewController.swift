@@ -13,7 +13,9 @@ class ListPokemonViewController: BaseViewController, UITableViewDataSource, UITa
     var listViewDelegate: ListViewDelegate?
     
     
-    
+    override func reqAgain() {
+        listViewDelegate?.reqAgain()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,7 @@ class ListPokemonViewController: BaseViewController, UITableViewDataSource, UITa
         
         
         navigationItem.title = "Pokemon List"
+        
         listViewDelegate = PokemonListPresenter(view: self)
         listViewDelegate?.viewDidLoad()
     }
@@ -65,13 +68,11 @@ class ListPokemonViewController: BaseViewController, UITableViewDataSource, UITa
 }
 
 extension ListPokemonViewController: ListPresenterDelegate {
-    
-    func showAlert(title: String, message: String, actions: [UIAlertAction]) {
-        
-    }
-    
     func reloadPage() {
-        DispatchQueue.main.async {            
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
             self.pokemonTableView.reloadData()
         }
     }

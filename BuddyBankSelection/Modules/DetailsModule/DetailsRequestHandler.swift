@@ -1,34 +1,33 @@
 //
-//  ListRequestHandler.swift
+//  DetailsRequestHandler.swift
 //  BuddyBankSelection
 //
-//  Created by Tara Tandel on 25/10/2020.
+//  Created by Tara Tandel on 29/10/2020.
 //
 
 import Foundation
-
-class ListRequestHandler {
-    weak var requestProtocol: RequestResponseDelegate?
+class DetailsRequestHandler {
+    weak var requestProtocol: DetailsRequestHandlerDelegate?
     /**
      initializes a client for the given protocol
      - Parameters:
      - requestProtocol: the class that we want the client to be initialized for
      */
-    init(requestProtocol: RequestResponseDelegate) {
+    init(requestProtocol: DetailsRequestHandlerDelegate) {
         self.requestProtocol = requestProtocol
     }
     var network = Networking()
     
 }
 
-extension ListRequestHandler: ListRequestHandlerDelegate {
+extension DetailsRequestHandler: RequestHandlerDelegate {
     func requesForTheList(url: String) {
         self.network.doTheReq(url: url) {
             results in
             switch results {
             case .success(let data):
                 do {
-                    let response = try JSONDecoder().decode(ListRequest.self, from: data ?? Data())
+                    let response = try JSONDecoder().decode(DetailsRequest.self, from: data ?? Data())
                     self.requestProtocol?.reqIsComplete(results: response)
                 } catch {
                     self.requestProtocol?.reqFailed(error: RequestErrorType.serializationError)

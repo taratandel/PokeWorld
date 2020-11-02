@@ -19,6 +19,7 @@ class Networking {
     func doTheReq(url: String, completionHandler: @escaping (_ result: Result<Data?>) -> Void) {
         if !Reachability.isConnectedToNetwork() {
             completionHandler(.failure(RequestErrorType.noInternet))
+            return
         }
         let task = self.session.dataTask(with: URL(string: url)!, completionHandler: { data,_,error  in
             if error != nil {

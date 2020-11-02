@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let viewController = ListPokemonViewController()
+        let viewController = PokemonDetailsViewController()
         let navigation = UINavigationController(rootViewController: viewController)
         
         window.rootViewController = navigation
