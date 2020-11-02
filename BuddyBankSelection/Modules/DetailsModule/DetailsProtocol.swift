@@ -22,3 +22,9 @@ protocol DetailsViewDelegate: class {
     func shouldLoadTagList(tagList: inout TopBarViewController)
     func generateDataForBarChar() -> [DataEntry]?
 }
+
+//Presenter -> WireFrame
+protocol GestureDetailsWireFramProtocol: class {
+    static func creatTheGestureDetailsView(_ view: PokemonDetailsViewController)
+    func openMainView()
+}

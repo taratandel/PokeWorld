@@ -29,7 +29,7 @@ extension ListRequestHandler: RequestHandlerDelegate {
             case .success(let data):
                 do {
                     let response = try JSONDecoder().decode(ListRequest.self, from: data ?? Data())
-                    self.requestProtocol?.reqIsComplete(results: response)
+                    self.requestProtocol?.reqIsComplete(response: response)
                 } catch {
                     self.requestProtocol?.reqFailed(error: RequestErrorType.serializationError)
                 }
