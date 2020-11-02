@@ -19,5 +19,6 @@ protocol DetailsViewDelegate: class {
     func viewDidLoad(url: String)
     func reqAgain()
     func getImageURL() -> URL?
+    func shouldLoadTagList(tagList: inout TopBarViewController)
     func generateDataForBarChar() -> [DataEntry]?
 }

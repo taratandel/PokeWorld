@@ -37,10 +37,6 @@ class PokemonDetailsPresenter: DetailsRequestHandlerDelegate {
     func reqIsComplete(results: DetailsRequest) {
         pokemonDetails = results
         view?.reloadPage()
-        //TODO: prepare the req for the image
-        //TODO: prepare the req for the tagList
-        //TODO: prepare the req for the image
-        
     }
 
 }
@@ -61,16 +57,29 @@ extension PokemonDetailsPresenter: DetailsViewDelegate {
         return URL(string: requestType.image(pokemonId: id).path)
     }
     
+    func shouldLoadTagList(tagList: inout TopBarViewController) {
+        let scopes : [String]? = pokemonDetails?.types?.map {
+            ($0.type?.name ?? "")
+        }
+
+        guard let tagListScopes = scopes else {
+            return
+        }
+
+        tagList.scopes = tagListScopes
+    }
     
     func generateDataForBarChar() -> [DataEntry]? {
         let scope = pokemonDetails?.stats?.reduce(into: [Int: String]()) {
-            print($0)
-
             $0[$1.base_stat ?? 0] = $1.stat?.name
         }
+        
+        
         guard let scopes = scope else {
             return nil
         }
+        
+        
         var dataForChart: [DataEntry] = []
         
         for element in scopes {
