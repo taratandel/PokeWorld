@@ -24,10 +24,11 @@ protocol ListViewDelegate: class {
     func getNumberOfElements(in section: Int?) -> Int
     func viewDidLoad()
     func reqAgain()
+    func prepareToPresent(indexPath: IndexPath)
 }
 
 // MARK: - Presenter -> WireFrame
 protocol ListWireFrameDelegate: class {
     static func creatTheView(_ viewRef: ListPokemonViewController)
-//    func presentDetailsView(with view: GestureDetailsViewProtocol)
+    func presentDetailsView(with url: String)
 }

@@ -69,6 +69,9 @@ extension ListPokemonViewController: UITableViewDataSource, UITableViewDelegate 
         return 100
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        listViewDelegate?.prepareToPresent(indexPath: indexPath)
+    }
 }
 
 // MARK: - Presenter Delegate

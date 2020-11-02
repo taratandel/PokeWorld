@@ -30,7 +30,7 @@ class PokemonListPresenter: ListRequestResponseDelegate {
     
     func reqIsComplete(response: ListRequest) {
         if response.next == nil {
-        let error = RequestErrorType.finished
+            let error = RequestErrorType.finished
             listPresenterDelegate?.reqFailed(error: error)
             return
         }
@@ -76,5 +76,20 @@ extension PokemonListPresenter: ListViewDelegate {
     
     func getNumberOfElements(in section: Int?) -> Int {
         return pokemonResults.count
+    }
+    
+    func prepareToPresent(indexPath: IndexPath) {
+        var url = ""
+        if indexPath.row < pokemonResults.count {
+            guard let poekmonUrl = pokemonResults[indexPath.row].url else {
+                return
+                // TODO: show error
+            }
+            url = poekmonUrl
+        }
+        else {// TODO: Show alert
+            
+        }
+        wireFrameDelegate?.presentDetailsView(with: url)
     }
 }

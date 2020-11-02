@@ -14,6 +14,7 @@
 		5725968025445A9500E61CFD /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5725967F25445A9500E61CFD /* Protocols.swift */; };
 		572596852544815A00E61CFD /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572596842544815A00E61CFD /* Reachability.swift */; };
 		572596932544EA0700E61CFD /* ListRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572596922544EA0700E61CFD /* ListRequestHandler.swift */; };
+		573F9B3C2550876C003AC245 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F9B3B2550876C003AC245 /* UIView+Extension.swift */; };
 		5751213F25496D190017E0C4 /* PokemonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5751213E25496D190017E0C4 /* PokemonListPresenter.swift */; };
 		5751214025496D190017E0C4 /* PokemonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5751213E25496D190017E0C4 /* PokemonListPresenter.swift */; };
 		57512175254ACD2E0017E0C4 /* DetailsRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57512174254ACD2E0017E0C4 /* DetailsRequestHandler.swift */; };
@@ -76,6 +77,7 @@
 		5725967F25445A9500E61CFD /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		572596842544815A00E61CFD /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		572596922544EA0700E61CFD /* ListRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRequestHandler.swift; sourceTree = "<group>"; };
+		573F9B3B2550876C003AC245 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5751213E25496D190017E0C4 /* PokemonListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListPresenter.swift; sourceTree = "<group>"; };
 		57512174254ACD2E0017E0C4 /* DetailsRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRequestHandler.swift; sourceTree = "<group>"; };
 		575E7FED2546326900C01DE3 /* ListPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPokemonViewController.swift; sourceTree = "<group>"; };
@@ -168,7 +170,6 @@
 				57E1E96E254C7461000ED521 /* BarChart */,
 				57E1E957254C653A000ED521 /* TagbarView */,
 				57E1E94A254C5E9F000ED521 /* PokemonDetailsViewController.swift */,
-				57E1E952254C60E7000ED521 /* ImageView+Extension.swift */,
 			);
 			path = PokemonDetailsView;
 			sourceTree = "<group>";
@@ -214,6 +215,7 @@
 				5751213E25496D190017E0C4 /* PokemonListPresenter.swift */,
 				57E1E99A254DAE5E000ED521 /* ListView */,
 				57DDDDB4255058840049E94C /* ListWireFrame.swift */,
+				57E1E952254C60E7000ED521 /* ImageView+Extension.swift */,
 			);
 			path = ListModule;
 			sourceTree = "<group>";
@@ -240,6 +242,7 @@
 				5725967F25445A9500E61CFD /* Protocols.swift */,
 				575E7FE025462FE700C01DE3 /* Networking */,
 				57DDDDBC25505A750049E94C /* UIApplicationView+Extension.swift */,
+				573F9B3B2550876C003AC245 /* UIView+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				57E1E993254DADF6000ED521 /* ListProtocols.swift in Sources */,
 				572596692543311100E61CFD /* Models.swift in Sources */,
 				57F411242542CF69000A699B /* SceneDelegate.swift in Sources */,
+				573F9B3C2550876C003AC245 /* UIView+Extension.swift in Sources */,
 				5725968025445A9500E61CFD /* Protocols.swift in Sources */,
 				57E1E93F254BE3FB000ED521 /* ShadowView.swift in Sources */,
 				57E1E910254BC0CF000ED521 /* IndicatorViewController.swift in Sources */,

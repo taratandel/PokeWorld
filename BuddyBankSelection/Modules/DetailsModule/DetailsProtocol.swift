@@ -24,6 +24,7 @@ protocol DetailsViewDelegate: class {
     func getImageURL() -> URL?
     func shouldLoadTagList(tagList: inout TagBarViewController)
     func generateDataForBarChar() -> [DataEntry]?
+    func getPokemonName() -> String
 }
 
 //Presenter -> WireFrame

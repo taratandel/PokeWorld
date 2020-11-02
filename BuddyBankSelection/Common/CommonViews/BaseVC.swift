@@ -78,5 +78,11 @@ class BaseViewController: UIViewController {
     func reqAgain() {
         
     }
+    
+    func removeNavigation() {
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
 }
 

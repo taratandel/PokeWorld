@@ -18,17 +18,14 @@ class ListWireFrame: TopViewControllerGettable, ListWireFrameDelegate {
         
         viewController.listViewDelegate = presenter
         viewController.listViewDelegate?.listPresenterDelegate = viewController
-
-    
+        
+        
     }
-//    func presentDetailsView(with view: GestureDetailsViewProtocol) {
-//        if let detailView = view as? GestureDetailsViewController {
-//            GestureDetailsWireFrame.creatTheGestureDetailsView(detailView)
-//            guard let listViewVC = topNavController else { return }
-//            listViewVC.pushViewController(detailView, animated: !isRunningTests)
-//        } else {
-//            // show the error
-//            return
-//        }
-//    }
+    func presentDetailsView(with url: String) {
+        let detailView = PokemonDetailsViewController()
+        PokemonDetailsWireFrame.creatDetailsView(detailView, url: url)
+        guard let listViewVC = topNavController else { return }
+        listViewVC.pushViewController(detailView, animated: true)
+        
+    }
 }

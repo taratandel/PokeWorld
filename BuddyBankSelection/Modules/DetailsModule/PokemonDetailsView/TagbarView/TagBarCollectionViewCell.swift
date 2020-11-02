@@ -7,29 +7,32 @@
 
 import UIKit
 
-
+protocol TagCollectionViewCellProtocol: class {
+    func buttonClicked(at index: Int, shouldSelect: Bool)
+}
 class TagCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     var details: String = ""
     var index: Int = -1
     
     var borderColor: UIColor? = .red
-    var cellBackgroundColor: UIColor? = .white
-    var textColor: UIColor? = .red
+    var cellBackgroundColor: UIColor? = .clear
+    var textColor: UIColor? = .white
     
     private var isSelectedBefore: Bool = false
     
     // MARK: - outlets
     var tagDetailLabel: UILabel = {
         let l =  UILabel()
-        l.frame = CGRect(x: 4, y: 6, width: 52, height: 20)
-        l.backgroundColor = .white
+        l.frame = CGRect(x: 4, y: 6, width: 52, height: 22)
+        l.backgroundColor = .clear
         return l
     }()
     
     var cellBackgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
+        
         return view
     }()
     
@@ -59,13 +62,14 @@ class TagCollectionViewCell: UICollectionViewCell {
         self.cellBackgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         self.bottomAnchor.constraint(equalTo: self.cellBackgroundView.bottomAnchor).isActive = true
         self.cellBackgroundView.topAnchor.constraint(equalTo: self.topAnchor ).isActive = true
-        self.cellBackgroundView.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        self.cellBackgroundView.heightAnchor.constraint(equalToConstant: 26).isActive = true
         // MARK: - Constraint tagDetailLabel
         cellBackgroundView.addSubview(tagDetailLabel)
         
         tagDetailLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.cellBackgroundView.trailingAnchor.constraint(equalTo: self.tagDetailLabel.leadingAnchor, constant: 4).isActive = true
-        self.tagDetailLabel.centerYAnchor.constraint(equalTo: cellBackgroundView.centerYAnchor).isActive = true
+        self.cellBackgroundView.trailingAnchor.constraint(equalTo: self.tagDetailLabel.trailingAnchor, constant: 4).isActive = true
+        self.tagDetailLabel.topAnchor.constraint(equalTo: cellBackgroundView.topAnchor).isActive = true
+        self.tagDetailLabel.bottomAnchor.constraint(equalTo: cellBackgroundView.bottomAnchor, constant: -4).isActive = true
         self.tagDetailLabel.leadingAnchor.constraint(equalTo: cellBackgroundView.leadingAnchor, constant: 4).isActive = true
         self.tagDetailLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for:.horizontal)
 
@@ -86,9 +90,11 @@ class TagCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        self.backgroundColor = backgroundColor
-        self.layer.borderColor = borderColor?.cgColor
+        let color = UIColor.darkRandom()
+        self.backgroundColor = color
+        self.layer.borderColor = color.cgColor
         self.layer.borderWidth = 1
+        self.layer.cornerRadius = 5
         self.tagDetailLabel.text = details
         self.tagDetailLabel.font = UIFont.defaultFont
         self.tagDetailLabel.textColor = textColor

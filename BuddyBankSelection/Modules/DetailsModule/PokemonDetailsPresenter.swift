@@ -86,12 +86,21 @@ extension PokemonDetailsPresenter: DetailsViewDelegate {
         var dataForChart: [DataEntry] = []
         
         for element in scopes {
-            let color = UIColor.random()
+            let color = UIColor.darkRandom()
             let height = Float(element.key)/100
             let textValue = "\(height)"
             let title = element.value
             dataForChart.append(DataEntry(color: color, height: height, textValue: textValue, title: title))
         }
         return dataForChart
+    }
+    
+    func getPokemonName() -> String {
+        if let name = pokemonDetails?.name {
+            return name
+        }
+        else {
+            return "Pokemon"
+        }
     }
 }

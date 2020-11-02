@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let viewController = PokemonDetailsViewController()
-        PokemonDetailsWireFrame.creatDetailsView(viewController, url: "https://pokeapi.co/api/v2/pokemon/38/")
+        let viewController = ListPokemonViewController()
+        ListWireFrame.creatTheView(viewController)
         let navigation = UINavigationController(rootViewController: viewController)
         
         window.rootViewController = navigation

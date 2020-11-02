@@ -27,7 +27,7 @@ class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate
         imageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2 + 48).isActive = true
         
-        imageView.backgroundColor = .clear
+        imageView.backgroundColor = .cutePink
         
         return imageView
     }()
@@ -43,8 +43,9 @@ class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate
         vc.view.heightAnchor.constraint(equalToConstant: 48).isActive = true
         
         vc.view.clipsToBounds = true
-        vc.view.backgroundColor = .clear
-
+        vc.view.backgroundColor = .lightBlue
+        vc.view.addBorder(toSide: .Bottom, withColor: UIColor.veryLightBlue.cgColor, andThickness: 1.0)
+        vc.view.addBorder(toSide: .Top, withColor: UIColor.veryLightBlue.cgColor, andThickness: 1.0)
         return vc
     }()
     // for showing the stats
@@ -58,7 +59,7 @@ class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate
         
         guard let data = detailsViewDelegate?.generateDataForBarChar() else {return view}
         view.updateDataEntries(dataEntries: data, animated: true)
-        
+        view.backgroundColor = .cuteVelvet
         return view
     }()
     
@@ -70,7 +71,8 @@ class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.removeNavigation()
+        self.navigationController?.navigationBar.shouldRemoveShadow(true)
         self.view.backgroundColor = .white
         setupView()
         // Do any additional setup after loading the view.
@@ -110,6 +112,8 @@ class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate
             guard let self = self else {
                 return
             }
+            self.navigationItem.title = self.detailsViewDelegate?.getPokemonName()
+
             self.detailsViewDelegate?.shouldLoadTagList(tagList: &self.tagBarVC)
 
 
