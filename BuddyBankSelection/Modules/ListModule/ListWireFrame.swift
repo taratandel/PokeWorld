@@ -9,15 +9,15 @@ import Foundation
 
 class ListWireFrame: TopViewControllerGettable, ListWireFrameDelegate {
     
-    class func creatTheView(_ uiViewRef: ListPokemonViewController){
+    class func creatTheView(_ viewController: ListPokemonViewController){
         let wireframe = ListWireFrame()
         
-        let presenter: ListRequestResponseDelegate & ListViewDelegate = PokemonListPresenter(for: uiViewRef, using: wireframe)
+        let presenter: ListRequestResponseDelegate & ListViewDelegate = PokemonListPresenter(for: viewController, using: wireframe)
         let webClinet: RequestHandlerDelegate = ListRequestHandler(requestProtocol: presenter)
         presenter.reqHandlerDelegate = webClinet
         
-        uiViewRef.listViewDelegate = presenter
-        uiViewRef.listViewDelegate?.listPresenterDelegate = uiViewRef
+        viewController.listViewDelegate = presenter
+        viewController.listViewDelegate?.listPresenterDelegate = viewController
 
     
     }

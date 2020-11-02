@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TopBarViewController: UIViewController {
+class TagBarViewController: UIViewController {
     // MARK: - IBOutlets
     var topBarCollectionView: UICollectionView!
     
@@ -77,7 +77,7 @@ class TopBarViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension TopBarViewController: UICollectionViewDataSource {
+extension TagBarViewController: UICollectionViewDataSource {
         func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -96,7 +96,7 @@ extension TopBarViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension TopBarViewController: UICollectionViewDelegateFlowLayout {
+extension TagBarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let scopes = self.scopes else {
             return CGSize(width: 200, height: 22.0)

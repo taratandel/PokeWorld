@@ -1,32 +1,27 @@
-////
-////  DetailsWireFrame.swift
-////  BuddyBankSelection
-////
-////  Created by Tara Tandel on 02/11/2020.
-////
 //
-//import Foundation
-//import UIKit
+//  DetailsWireFrame.swift
+//  BuddyBankSelection
 //
-//class GestureDetailsWireFrame: GestureDetailsWireFramProtocol {
-//    
-//    static func creatTheGestureDetailsView(_ view: GestureDetailsViewController) {
-//        let interector = GestureDetailsInterector()
-//        
-//        let wireFrame = GestureDetailsWireFrame()
-//        
-//        let presenter: GestureDetailsPresenterProtocol & GestureDetailsOutputPresenterProtocol = GestureDetailsPresentor(interector: interector, router: wireFrame)
-//        
-//        let client = FetchRemoteData(requestProtocol: interector)
-//        
-//        view.presenter = presenter
-//        view.presenter.interface = view
-//        
-//        interector.presenter = presenter
-//        interector.client = client
+//  Created by Tara Tandel on 02/11/2020.
 //
-//    }
-//    
+
+import Foundation
+import UIKit
+
+class PokemonDetailsWireFrame: PokemonDetailsWireFrameDelegate {
+    static func creatDetailsView(_ viewController: PokemonDetailsViewController, url: String) {
+                
+        let wireframe = PokemonDetailsWireFrame()
+        
+        let presenter: DetailsRequestHandlerDelegate & DetailsViewDelegate = PokemonDetailsPresenter(for: viewController, using: wireframe, with: url)
+        let webClinet: RequestHandlerDelegate = DetailsRequestHandler(requestProtocol: presenter)
+        presenter.reqHandlerDelegate = webClinet
+        
+        viewController.detailsViewDelegate = presenter
+        viewController.detailsViewDelegate?.detailsPresenterDelegate = viewController
+
+    }
+    
 //    func openMainView() {
 //        let nav = UINavigationController()
 //        let initialStoryBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -36,4 +31,4 @@
 //        UIApplication.shared.keyWindow?.rootViewController = nav
 //        
 //    }
-//}
+}

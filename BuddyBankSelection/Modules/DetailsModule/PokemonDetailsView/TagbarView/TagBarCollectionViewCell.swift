@@ -7,9 +7,7 @@
 
 import UIKit
 
-protocol TagCollectionViewCellProtocol: class {
-    func buttonClicked(at index: Int, shouldSelect: Bool)
-}
+
 class TagCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     var details: String = ""

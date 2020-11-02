@@ -8,6 +8,7 @@
 import UIKit
 
 protocol DetailsRequestHandlerDelegate: ReqErrorDelegate {
+    var reqHandlerDelegate: RequestHandlerDelegate? { get set }
     func reqIsComplete(results: DetailsRequest)
 }
 // Detailspresenter -> Detailsview
@@ -16,15 +17,17 @@ protocol DetailsPresenterDelegate: ReqErrorDelegate {
 }
 // Detailsview -> Detailspresenter
 protocol DetailsViewDelegate: class {
-    func viewDidLoad(url: String)
+    var detailsPresenterDelegate: DetailsPresenterDelegate? {set get}
+
+    func viewDidLoad()
     func reqAgain()
     func getImageURL() -> URL?
-    func shouldLoadTagList(tagList: inout TopBarViewController)
+    func shouldLoadTagList(tagList: inout TagBarViewController)
     func generateDataForBarChar() -> [DataEntry]?
 }
 
 //Presenter -> WireFrame
-protocol GestureDetailsWireFramProtocol: class {
-    static func creatTheGestureDetailsView(_ view: PokemonDetailsViewController)
-    func openMainView()
+protocol PokemonDetailsWireFrameDelegate: class {
+    static func creatDetailsView(_ viewController: PokemonDetailsViewController, url: String)
+//    func openMainView()
 }

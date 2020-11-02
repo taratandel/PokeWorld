@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 class PkemonListTableViewCell: UITableViewCell {
-    // MARK: - Views (computed properties)
+    // MARK: - subViews (computed properties)
     var pokemonName: String? {
         didSet {
             nameLabel.text = pokemonName
