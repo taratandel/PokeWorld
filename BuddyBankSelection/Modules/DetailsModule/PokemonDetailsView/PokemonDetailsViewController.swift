@@ -8,39 +8,42 @@
 import UIKit
 
 class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate {
-    //
-//    let scrollView: UIScrollView = {
-//        let view = UIScrollView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
-//
     var stackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .red
+        view.backgroundColor = .clear
         return view
     }()
     
     lazy var pokemonImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.frame.size.height = 150
-        imageView.frame.size.width = stackView.frame.size.width 
-        imageView.backgroundColor = .blue
+        imageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2 + 48)
+
+        imageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2 + 48).isActive = true
+        imageView.backgroundColor = .clear
         return imageView
     }()
     
     lazy var tagBarView: TopBarViewController = {
-        let view = TopBarViewController()
-        view.view.backgroundColor = .blue
-        view.view.frame.size.height = 48
+        let view = TopBarViewController(nibName: nil, bundle: nil)
+        view.view.translatesAutoresizingMaskIntoConstraints = false
+        view.view.backgroundColor = .clear
+        view.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 48)
+        view.view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+        view.view.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        view.view.clipsToBounds = true
         return view
     }()
     
     lazy var barChartView: BeautifulBarChart = {
         let view = BeautifulBarChart()
-        view.frame.size.height = 100
+        view.frame.size.height = UIScreen.main.bounds.height / 2 - 96
+        view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+        view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2 - 96).isActive = true
+        guard let data = presenter?.generateDataForBarChar() else {return view}
+        view.updateDataEntries(dataEntries: data, animated: true)
         return view
     }()
     
@@ -51,6 +54,7 @@ class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         presenter = PokemonDetailsPresenter(view: self)
         setupView()
         // Do any additional setup after loading the view.
@@ -62,62 +66,57 @@ class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate
     
     private func setupView() {
         self.view.addSubview(stackView)
-        
-        // MARK: - constraint scrollView
-
-//        scrollView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-//        scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-//        scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-//        scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        
+                
         
         // MARK: - constraint stackView
-//        scrollView.addSubview(stview.safeAreaLayoutGuideackView)
-
+        
         stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-//        stackView.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor).isActive = true
         
         
-        // MARK: - Scrollable stackView
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = 0
         stackView.clipsToBounds = false
         
-//        setupStackView()
-        // setup the tagbar view
-        // setup the stats with their power
+        
     }
     func reloadPage() {
         createStackView()
     }
     
     func createStackView() {
+        
         DispatchQueue.main.async { [weak self] in
             guard let self = self else {
                 return
             }
-//            self.stackView.insertSubview(self.pokemonImage, at:0)
+            self.presenter?.shouldLoadTagList(tagList: &self.tagBarView)
+
+
+            
+            // MARK: - Loading image
             guard let imageURL = self.presenter?.getImageURL() else {
-            return //TODO: do smth for the erro
-        }
+                return //TODO: do smth for the erro
+            }
             self.pokemonImage.load(url: imageURL){isFinished in
                 if isFinished {
-                    self.stackView.insertSubview(self.pokemonImage, at:0)
+                    self.stackView.insertArrangedSubview(self.pokemonImage, at: 0)
+                    self.stackView.insertArrangedSubview(self.tagBarView.view, at: 1)
+                    self.stackView.insertArrangedSubview(self.barChartView, at: 2)
+
+
+
+//                    self.stackView.insertSubview(self.pokemonImage, at: 1)
+
+                    // MARK: - Loading Tagview
                 }
             }
+            self.stackView.layoutIfNeeded()
         }
     }
     
-//    func setupStackView() {
-//        stackView.insertSubview(pokemonImage, at: 0)
-////        stackView.insertSubview(tagBarView.view, at: 1)
-//        stackView.insertSubview(barChartView, at: 2)
-//    }
-
-
 }

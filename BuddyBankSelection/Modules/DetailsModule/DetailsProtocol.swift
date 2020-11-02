@@ -19,4 +19,5 @@ protocol DetailsViewDelegate: class {
     func viewDidLoad(url: String)
     func reqAgain()
     func getImageURL() -> URL?
+    func generateDataForBarChar() -> [DataEntry]?
 }

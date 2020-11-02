@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+
 class PokemonDetailsPresenter: DetailsRequestHandlerDelegate {
     // delegates
     var reqHandler: RequestHandlerDelegate?
@@ -60,4 +62,24 @@ extension PokemonDetailsPresenter: DetailsViewDelegate {
     }
     
     
+    func generateDataForBarChar() -> [DataEntry]? {
+        let scope = pokemonDetails?.stats?.reduce(into: [Int: String]()) {
+            print($0)
+
+            $0[$1.base_stat ?? 0] = $1.stat?.name
+        }
+        guard let scopes = scope else {
+            return nil
+        }
+        var dataForChart: [DataEntry] = []
+        
+        for element in scopes {
+            let color = UIColor.random()
+            let height = Float(element.key)/100
+            let textValue = "\(height)"
+            let title = element.value
+            dataForChart.append(DataEntry(color: color, height: height, textValue: textValue, title: title))
+        }
+        return dataForChart
+    }
 }
