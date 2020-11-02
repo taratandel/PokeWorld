@@ -108,11 +108,9 @@ class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate
                     self.stackView.insertArrangedSubview(self.tagBarView.view, at: 1)
                     self.stackView.insertArrangedSubview(self.barChartView, at: 2)
 
-
-
-//                    self.stackView.insertSubview(self.pokemonImage, at: 1)
-
-                    // MARK: - Loading Tagview
+                } else {
+                    self.stackView.insertArrangedSubview(self.tagBarView.view, at: 0)
+                    self.stackView.insertArrangedSubview(self.barChartView, at: 1)
                 }
             }
             self.stackView.layoutIfNeeded()

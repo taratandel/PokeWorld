@@ -17,6 +17,11 @@ extension UIImageView {
                         completionHandler(true)
                     }
                 }
+                else {
+                    completionHandler(false)
+                }
+            } else {
+                completionHandler(false)
             }
         }
     }
