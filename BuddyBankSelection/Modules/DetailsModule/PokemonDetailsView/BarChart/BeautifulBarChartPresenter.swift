@@ -16,17 +16,17 @@ class BeautifulBarChartPresenter {
     /// Reserved space to show text below each bar
     private let bottomSpace: CGFloat = 40.0
     /// Reserved space to show value (or height) of the bar
-    private let topSpace: CGFloat = 100
+    private let topSpace: CGFloat = 150
     
     var dataEntries: [DataEntry] = []
     
-    init(barWidth: CGFloat = 140, space: CGFloat = -70) {
+    init(barWidth: CGFloat = 160, space: CGFloat = -70) {
         self.barWidth = barWidth
         self.space = space
     }
     
     func computeContentWidth() -> CGFloat {
-        return (barWidth) * CGFloat(dataEntries.count + 1)/2
+        return (barWidth) * CGFloat(dataEntries.count + 1)/2 + 20
     }
     
     func computeBarEntries(viewHeight: CGFloat) -> [BeautifulBarEntry] {

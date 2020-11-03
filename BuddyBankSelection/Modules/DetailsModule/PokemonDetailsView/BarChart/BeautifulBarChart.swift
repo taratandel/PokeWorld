@@ -12,7 +12,7 @@ class BeautifulBarChart: UIView {
     private let mainLayer: CALayer = CALayer()
     private let scrollView: UIScrollView = UIScrollView()
     
-    private let presenter = BeautifulBarChartPresenter(barWidth: 160, space: -50)
+    private let presenter = BeautifulBarChartPresenter(barWidth: 160, space: -70)
     
     private var animated: Bool = false
     

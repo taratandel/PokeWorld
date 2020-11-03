@@ -34,7 +34,7 @@ class PokemonDetailsPresenter: DetailsRequestHandlerDelegate {
     }
     
     func reqFailed(error: Error) {
-        //TODO: view?.reqFailed(error: error)
+        detailsPresenterDelegate?.reqFailed(error: error)
     }
     
     func reqIsComplete(results: DetailsRequest) {
