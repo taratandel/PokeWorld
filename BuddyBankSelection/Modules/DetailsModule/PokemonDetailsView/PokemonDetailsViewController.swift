@@ -71,9 +71,10 @@ class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showIndicatorView(with: "pokemon is arriving ... ")
         self.removeNavigation()
         self.navigationController?.navigationBar.shouldRemoveShadow(true)
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .lightBlue
         setupView()
         // Do any additional setup after loading the view.
     }
@@ -122,15 +123,17 @@ class PokemonDetailsViewController: BaseViewController, DetailsPresenterDelegate
             guard let imageURL = self.detailsViewDelegate?.getImageURL() else {
                 return //TODO: do smth for the erro
             }
-            self.pokemonImageView.load(url: imageURL){isFinished in
+            self.pokemonImageView.load(url: imageURL){ isFinished in
                 if isFinished {
                     self.stackView.insertArrangedSubview(self.pokemonImageView, at: 0)
                     self.stackView.insertArrangedSubview(self.tagBarVC.view, at: 1)
                     self.stackView.insertArrangedSubview(self.barChartView, at: 2)
+                    self.removeIndicator()
 
                 } else {
                     self.stackView.insertArrangedSubview(self.tagBarVC.view, at: 0)
                     self.stackView.insertArrangedSubview(self.barChartView, at: 1)
+                    self.removeIndicator()
                 }
             }
             self.stackView.layoutIfNeeded()

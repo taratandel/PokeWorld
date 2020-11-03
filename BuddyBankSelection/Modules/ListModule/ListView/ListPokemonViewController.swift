@@ -21,6 +21,7 @@ class ListPokemonViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showIndicatorView(with: "we are loading")
         setupViews()
         listViewDelegate?.viewDidLoad()
     }
@@ -82,6 +83,7 @@ extension ListPokemonViewController: ListPresenterDelegate {
                 return
             }
             self.pokemonTableView.reloadData()
+            self.removeIndicator()
         }
     }
 }
