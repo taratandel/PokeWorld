@@ -65,7 +65,7 @@ extension PokemonListPresenter: ListViewDelegate {
         if index.row == numberOfResults - 2 {
             self.reqForTheList()
         }
-        if index.row < numberOfResults - 1 {
+        if index.row < numberOfResults {
             return pokemonResults[index.row].name
         }
         else {
