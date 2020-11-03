@@ -14,7 +14,7 @@ class PokemonDetailsPresenter: DetailsRequestHandlerDelegate {
     private var pokemonDetails: DetailsRequest?
 
     // delegates
-    private var wireFrameDelegate: PokemonDetailsWireFrameDelegate?
+    private weak var wireFrameDelegate: PokemonDetailsWireFrameDelegate?
     var reqHandlerDelegate: RequestHandlerDelegate?
     weak var detailsPresenterDelegate: DetailsPresenterDelegate?
     
