@@ -9,25 +9,28 @@ import Foundation
 import UIKit
 
 class PokemonDetailsPresenter: DetailsRequestHandlerDelegate {
-    // delegates
-    var reqHandler: RequestHandlerDelegate?
-    var view: DetailsPresenterDelegate?
-    
+    // data
     private var pokemonUrl: String?
-    
     private var pokemonDetails: DetailsRequest?
+
+    // delegates
+    private var wireFrameDelegate: PokemonDetailsWireFrameDelegate?
+    var reqHandlerDelegate: RequestHandlerDelegate?
+    weak var detailsPresenterDelegate: DetailsPresenterDelegate?
     
-    init(view: DetailsPresenterDelegate) {
-        self.view = view
+    
+    init(for detailsPresenterDelegate: DetailsPresenterDelegate, using wireFrameDelegate: PokemonDetailsWireFrameDelegate, with url: String) {
+        self.detailsPresenterDelegate = detailsPresenterDelegate
+        self.wireFrameDelegate = wireFrameDelegate
+        self.pokemonUrl = url
     }
-    private func reqForTheDetails(url: String?) {
-        var urlToReq = ""
-        if url == nil && pokemonUrl != nil{
-            urlToReq = pokemonUrl!
+    
+    private func reqForTheDetails() {
+        guard let urlToReq = pokemonUrl else {
+            //TODO: show the error
+            return
         }
-        urlToReq = url ?? ""
-        reqHandler = DetailsRequestHandler(requestProtocol: self)
-        reqHandler?.requesForTheList(url: urlToReq)
+        reqHandlerDelegate?.requesForTheList(url: urlToReq)
     }
     
     func reqFailed(error: Error) {
@@ -36,18 +39,18 @@ class PokemonDetailsPresenter: DetailsRequestHandlerDelegate {
     
     func reqIsComplete(results: DetailsRequest) {
         pokemonDetails = results
-        view?.reloadPage()
+        detailsPresenterDelegate?.reloadPage()
     }
 
 }
-
+// MARK: - DetailsViewDelegate
 extension PokemonDetailsPresenter: DetailsViewDelegate {
-    func viewDidLoad(url: String) {
-        self.reqForTheDetails(url: url)
+    func viewDidLoad() {
+        self.reqForTheDetails()
     }
     
     func reqAgain() {
-        self.reqForTheDetails(url: nil)
+        self.reqForTheDetails()
     }
     
     func getImageURL() -> URL? {
@@ -57,7 +60,7 @@ extension PokemonDetailsPresenter: DetailsViewDelegate {
         return URL(string: requestType.image(pokemonId: id).path)
     }
     
-    func shouldLoadTagList(tagList: inout TopBarViewController) {
+    func shouldLoadTagList(tagList: inout TagBarViewController) {
         let scopes : [String]? = pokemonDetails?.types?.map {
             ($0.type?.name ?? "")
         }
@@ -83,12 +86,21 @@ extension PokemonDetailsPresenter: DetailsViewDelegate {
         var dataForChart: [DataEntry] = []
         
         for element in scopes {
-            let color = UIColor.random()
+            let color = UIColor.darkRandom()
             let height = Float(element.key)/100
             let textValue = "\(height)"
             let title = element.value
             dataForChart.append(DataEntry(color: color, height: height, textValue: textValue, title: title))
         }
         return dataForChart
+    }
+    
+    func getPokemonName() -> String {
+        if let name = pokemonDetails?.name {
+            return name
+        }
+        else {
+            return "Pokemon"
+        }
     }
 }

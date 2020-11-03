@@ -7,30 +7,39 @@
 
 import UIKit
 
-class ListPokemonViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+class ListPokemonViewController: BaseViewController {
+    //view
+    let pokemonTableView = UITableView()
     
-    let pokemonTableView = UITableView() // view
+    //delegate
     var listViewDelegate: ListViewDelegate?
     
-    
+    // alert functiom
     override func reqAgain() {
         listViewDelegate?.reqAgain()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showIndicatorView(with: "we are loading")
+        setupViews()
+        listViewDelegate?.viewDidLoad()
+    }
+    
+    // MARK: - setup
+    func setupViews() {
         
         view.backgroundColor = .white
         
         view.addSubview(pokemonTableView)
         
         pokemonTableView.translatesAutoresizingMaskIntoConstraints = false
-        
+        // constraints
         pokemonTableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
         pokemonTableView.leftAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leftAnchor).isActive = true
         pokemonTableView.rightAnchor.constraint(equalTo:view.safeAreaLayoutGuide.rightAnchor).isActive = true
         pokemonTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        
+        // delegates for tableview
         pokemonTableView.dataSource = self
         pokemonTableView.delegate = self
         
@@ -38,16 +47,12 @@ class ListPokemonViewController: BaseViewController, UITableViewDataSource, UITa
         
         pokemonTableView.register(PkemonListTableViewCell.self, forCellReuseIdentifier: "pokemonListCell")
         
-        
-        
-        
         navigationItem.title = "Pokemon List"
-        
-        listViewDelegate = PokemonListPresenter(view: self)
-        listViewDelegate?.viewDidLoad()
     }
-    
-    
+}
+
+// MARK: - TableView
+extension ListPokemonViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listViewDelegate?.getNumberOfElements(in: section) ?? 1
@@ -65,8 +70,12 @@ class ListPokemonViewController: BaseViewController, UITableViewDataSource, UITa
         return 100
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        listViewDelegate?.prepareToPresent(indexPath: indexPath)
+    }
 }
 
+// MARK: - Presenter Delegate
 extension ListPokemonViewController: ListPresenterDelegate {
     func reloadPage() {
         DispatchQueue.main.async { [weak self] in
@@ -74,6 +83,7 @@ extension ListPokemonViewController: ListPresenterDelegate {
                 return
             }
             self.pokemonTableView.reloadData()
+            self.removeIndicator()
         }
     }
 }

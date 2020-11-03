@@ -16,10 +16,11 @@ class BaseViewController: UIViewController {
     
     func showIndicatorView(with text: String) {
         indicatorView = IndicatorViewController(indicatorMessage: text, indicatorColor: .red)
+        
+        
         guard let indicator = indicatorView else {return}
         indicator.view.frame = self.view.frame
         self.view.addSubview(indicator.view)
-        self.view.bringSubviewToFront(indicator.view)
     }
     
     func removeIndicator() {
@@ -77,6 +78,12 @@ class BaseViewController: UIViewController {
     
     func reqAgain() {
         
+    }
+    
+    func removeNavigation() {
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
 }
 

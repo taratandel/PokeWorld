@@ -10,39 +10,43 @@ import UIKit
 
 class PokemonListPresenter: ListRequestResponseDelegate {
     // delegates
-    var reqHandler: RequestHandlerDelegate?
-    var view: ListPresenterDelegate?
+    private var wireFrameDelegate: ListWireFrameDelegate?
+    var reqHandlerDelegate: RequestHandlerDelegate?
+    weak var listPresenterDelegate: ListPresenterDelegate?
     
+    // data
     private var pokemonResults = [PokemonResults]()
+    private var url = EndPoints.serverFirstList
     
-    var url = EndPoints.serverFirstList
-    
-    init(view: ListPresenterDelegate) {
-        self.view = view
+    init(for listPresenterDelegate: ListPresenterDelegate, using wireFrameDelegate: ListWireFrameDelegate) {
+        self.listPresenterDelegate = listPresenterDelegate
+        self.wireFrameDelegate = wireFrameDelegate
     }
+    
     private func reqForTheList() {
         if url == "" {return}
-        reqHandler?.requesForTheList(url: url)
+        reqHandlerDelegate?.requesForTheList(url: url)
     }
     
-    func reqIsComplete(results: ListRequest) {
-        if results.next == nil {
-        let error = RequestErrorType.finished
-            view?.reqFailed(error: error)
+    func reqIsComplete(response: ListRequest) {
+        if response.next == nil {
+            let error = RequestErrorType.finished
+            listPresenterDelegate?.reqFailed(error: error)
+            return
         }
-         if results.results != nil{
-            url = results.next!
-            self.pokemonResults.append(contentsOf: results.results!)
-            view?.reloadPage()
+        if response.results != nil {
+            url = response.next!
+            self.pokemonResults.append(contentsOf: response.results!)
+            listPresenterDelegate?.reloadPage()
         }
         else {
             let error = RequestErrorType.finished
-            view?.reqFailed(error: error)
+            listPresenterDelegate?.reqFailed(error: error)
         }
     }
     
     func reqFailed(error: Error) {
-        view?.reqFailed(error: error)
+        listPresenterDelegate?.reqFailed(error: error)
     }
     
     func reqAgain() {
@@ -50,10 +54,9 @@ class PokemonListPresenter: ListRequestResponseDelegate {
     }
     
 }
-
+// MARK: - ListViewDelegate
 extension PokemonListPresenter: ListViewDelegate {
     func viewDidLoad() {
-        reqHandler = ListRequestHandler(requestProtocol: self)
         self.reqForTheList()
     }
     
@@ -62,16 +65,31 @@ extension PokemonListPresenter: ListViewDelegate {
         if index.row == numberOfResults - 2 {
             self.reqForTheList()
         }
-        if index.row < numberOfResults - 1 {
+        if index.row < numberOfResults {
             return pokemonResults[index.row].name
         }
         else {
-            view?.reqFailed(error: RequestErrorType.badRequest)
+            listPresenterDelegate?.reqFailed(error: RequestErrorType.badRequest)
             return nil
         }
     }
     
     func getNumberOfElements(in section: Int?) -> Int {
         return pokemonResults.count
+    }
+    
+    func prepareToPresent(indexPath: IndexPath) {
+        var url = ""
+        if indexPath.row < pokemonResults.count {
+            guard let poekmonUrl = pokemonResults[indexPath.row].url else {
+                return
+                // TODO: show error
+            }
+            url = poekmonUrl
+        }
+        else {// TODO: Show alert
+            
+        }
+        wireFrameDelegate?.presentDetailsView(with: url)
     }
 }

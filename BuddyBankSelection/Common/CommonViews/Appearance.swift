@@ -48,15 +48,51 @@ extension UIColor {
     static var lightBlue: UIColor {
         return UIColor(red: 158/256, green: 224/256, blue: 255/256, alpha: 1)
     }
+    static var veryLightBlue: UIColor {
+        return UIColor(rgb: 0xc8e7ff)
+    }
+    static var cutePink: UIColor {
+        return UIColor(rgb: 0xffcbf2)
+    }
+    
+    static var cuteVelvet : UIColor {
+        return UIColor(rgb: 0xe5b3fe)
+    }
 }
 
 extension UIColor {
+   convenience init(red: Int, green: Int, blue: Int) {
+       assert(red >= 0 && red <= 255, "Invalid red component")
+       assert(green >= 0 && green <= 255, "Invalid green component")
+       assert(blue >= 0 && blue <= 255, "Invalid blue component")
+
+       self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+   }
+
+   convenience init(rgb: Int) {
+       self.init(
+           red: (rgb >> 16) & 0xFF,
+           green: (rgb >> 8) & 0xFF,
+           blue: rgb & 0xFF
+       )
+   }
+}
+extension UIColor {
     static func random() -> UIColor {
         return UIColor(
-            red:   .random(in: 0.3 ... 1),
-            green: .random(in: 0.3 ... 1),
-            blue:  .random(in: 0.3 ... 1),
+            red:   .random(in: 0.4 ... 1),
+            green: .random(in: 0.4 ... 1),
+            blue:  .random(in: 0.4 ... 1),
            alpha: 1.0
+        )
+    }
+    
+    static func darkRandom() -> UIColor {
+        return UIColor(
+        red:   .random(in: 0.0 ... 0.5),
+        green: .random(in: 0.0 ... 0.5),
+        blue:  .random(in: 0.0 ... 0.5),
+            alpha: 0.8
         )
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 class PkemonListTableViewCell: UITableViewCell {
-    
+    // MARK: - subViews (computed properties)
     var pokemonName: String? {
         didSet {
             nameLabel.text = pokemonName
@@ -17,7 +17,8 @@ class PkemonListTableViewCell: UITableViewCell {
             setNeedsLayout()
         }
     }
-    let containerView:UIView = {
+    
+    let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true // this will make sure its children do not go out of the boundary
@@ -25,7 +26,7 @@ class PkemonListTableViewCell: UITableViewCell {
     }()
     
     
-    let nameLabel:UILabel = {
+    let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.defaultFont
         label.textColor = .black
@@ -34,8 +35,7 @@ class PkemonListTableViewCell: UITableViewCell {
         label.textAlignment = .center
         return label
     }()
-    
-    let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+
     
     var shadowView: ShadowView = {
         let view = ShadowView()
@@ -43,7 +43,9 @@ class PkemonListTableViewCell: UITableViewCell {
         return view
     }()
     
+    let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     
+    // MARK: inits
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUPlayout()
@@ -51,7 +53,6 @@ class PkemonListTableViewCell: UITableViewCell {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        
         super.init(coder: aDecoder)
     }
     

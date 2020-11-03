@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TopBarViewController: UIViewController {
+class TagBarViewController: UIViewController {
     // MARK: - IBOutlets
     var topBarCollectionView: UICollectionView!
     
@@ -71,13 +71,13 @@ class TopBarViewController: UIViewController {
         self.topBarCollectionView.dataSource = self
         topBarCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        topBarCollectionView.backgroundColor = .white
+        topBarCollectionView.backgroundColor = .clear
         
     }
 }
 
 // MARK: - UICollectionViewDataSource
-extension TopBarViewController: UICollectionViewDataSource {
+extension TagBarViewController: UICollectionViewDataSource {
         func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -96,16 +96,16 @@ extension TopBarViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension TopBarViewController: UICollectionViewDelegateFlowLayout {
+extension TagBarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let scopes = self.scopes else {
             return CGSize(width: 200, height: 22.0)
         }
         let item = scopes[indexPath.row]
         let itemSize = item.size(withAttributes: [
-            NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)
+            NSAttributedString.Key.font : UIFont.defaultFont
         ])
-        return CGSize(width: itemSize.width + 14, height: 22.0)
+        return CGSize(width: itemSize.width + 8, height: 26.0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
